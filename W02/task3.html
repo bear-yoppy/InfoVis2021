@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>W02: Task 3</title>
+    </head>
+    <body>
+        <p>三角形の3つの頂点の座標を入力</p>
+        <p>
+            x0:<input type="number" id="x0"/>
+            y0:<input type="number" id="y0"/>
+            z0:<input type="number" id="z0"/>
+            <br>
+            x1:<input type="number" id="x1"/>
+            y1:<input type="number" id="y1"/>
+            z1:<input type="number" id="z1"/>
+            <br>
+            x2:<input type="number" id="x2"/>
+            y2:<input type="number" id="y2"/>
+            z2:<input type="number" id="z2"/>
+            <br>
+            <input type="button" value="面積を計算する" id="calc_area"/>
+        </p>
+        <p id="result"></p>
+        <script src="vec3.js"></script>
+        <script>
+            var element = document.getElementById("calc_area");
+            element.addEventListener("click", e);
+            function e(){
+                var x0 = document.getElementById("x0").valueAsNumber;
+                var y0 = document.getElementById("y0").valueAsNumber;
+                var z0 = document.getElementById("z0").valueAsNumber;
+                var x1 = document.getElementById("x1").valueAsNumber;
+                var y1 = document.getElementById("y1").valueAsNumber;
+                var z1 = document.getElementById("z1").valueAsNumber;
+                var x2 = document.getElementById("x2").valueAsNumber;
+                var y2 = document.getElementById("y2").valueAsNumber;
+                var z2 = document.getElementById("z2").valueAsNumber;
+                
+                var v0 = new Vec3( x0, y0, z0 );
+                var v1 = new Vec3( x1, y1, z1 );
+                var v2 = new Vec3( x2, y2, z2 );
+
+                var S = AreaOfTriangle( v0, v1, v2 );
+
+                var output = "三角形の面積は " + S + " です";
+
+                document.getElementById("result").innerHTML = output;
+            }
+            function AreaOfTriangle( v0, v1, v2 ){
+                var ab = new Vec3( v1.x - v0.x, v1.y - v0.y, v1.z - v0.z );
+                var ac = new Vec3( v2.x - v0.x, v2.y - v0.y, v2.z - v0.z );
+                var len_ab = Math.sqrt( ab.x ** 2 + ab.y ** 2 + ab.z ** 2);
+                var len_ac = Math.sqrt( ac.x ** 2 + ac.y ** 2 + ac.z ** 2);
+                var dot_ab_ac = ab.x * ac.x + ab.y * ac.y + ab.z * ac.z;
+
+                return Math.sqrt((len_ab ** 2) * (len_ac ** 2) - dot_ab_ac ** 2) / 2;
+            }
+        </script>
+    </body>
+</html>
