@@ -1,7 +1,7 @@
 label,w,color
-Kobe,38435,red
-Kyoto,36316,blue
-Osaka,36064,green
-Otsu,35633,yellow
-Nara,34828,maroon
-Wakayama,32484,purple
+data A,172,red
+data B,68,blue
+data C,134,green
+data D,100,yellow
+data E,84,maroon
+data F,159,purple
