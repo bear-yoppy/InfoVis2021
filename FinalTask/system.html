@@ -1,0 +1,58 @@
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>W15: Final Task</title>
+    <style>
+        body {
+            font-family: system-ui;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .bar.active {
+            stroke: #000;
+            fill: #c00;
+        }
+
+        #tooltip {
+            position: absolute;
+            opacity: 0;
+            background: #fff;
+            border: 1px solid #ddd;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 2px 8px;
+        }
+
+        .tooltip-label {
+            font-weight: 500;
+            font-size: 11px;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>交通事故の件数と月ごとの天候の比率</h2>
+    <p><i>※棒グラフを押すことで右側に円グラフが表示されます</i></p>
+    <div id="tooltip"></div>
+    <div class="container">
+        <div><svg id="drawing_region_barchart"></svg></div>
+        <div><svg id="drawing_region_piechart"></svg></div>
+    </div>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="task_BarChart.js"></script>
+    <script src="task_PieChart.js"></script>
+    <script src="task_main.js"></script>
+    <p>
+        出典：<br>
+        <a href="https://www.osaka-ankyo.jp/topics/hakusyo/Hakusho_R1.pdf">大阪府交通安全協会 「大阪の交通白書 令和元年版」</a><br>
+        <a href="https://www.jma.go.jp/jma/index.html">気象庁ホームページ</a><br>
+        <a href="https://tenki.jp">日本気象協会 tenki.jp【公式】</a>
+    </p>
+</body>
+
+</html>
